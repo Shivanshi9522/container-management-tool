@@ -1,0 +1,28 @@
+<b><h1 style='margin-top:0%;'>Create Your Own Image Using Dockerfile</h1></b>
+        <br /><br />
+        Imagename: <input name='imagename' id='imagnameinput' />
+        <br /><br />
+        <textarea style='display:inline-block;width:500px;height:500px;border:15px solid black ;background-color:black;color:white;' id='filecontentinput'></textarea>
+        <br /><br />
+        <button onclick='createImage()'>Create Image</button>
+        <br /><br />
+        <div id="d90" style='border:2px solid black;display: inline-block;width:500px;height:500px;'></div>
+        <script>
+            const ip="localhost";
+            function createImage(){
+                const myhttp=new XMLHttpRequest();
+                const imagename=document.getElementById("imagnameinput").value;
+                filecontent=document.getElementById("filecontentinput").value;
+                
+                dockerfilelines=filecontent.split("\n");
+                console.log(dockerfilelines);
+                /*myhttp.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d90").innerHTML=myhttp.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/imgcreat?imagename="+imagename+"&filcont="+dockerfilelines;
+                myhttp.open("GET",url,true);
+                myhttp.send();*/
+            }
+        </script>

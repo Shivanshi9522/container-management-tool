@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <style>
+            .but3{
+                
+                font-size:29px;
+                border-radius: 10px;
+                border-color: white;
+                background-color: blue;
+                color:white;
+            
+            }
+            #head3{
+                margin-top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="head3">DELETE CONTAINER</h1>
+        <div>
+           Container Name<input id="in8" name="cnam" />
+           
+                        <br /><br /><br /><br />
+                        
+                        <button class="but3" onclick="dem()">Delete</button>
+        </div>
+        <div id="d10">
+                
+        </div>
+        
+        <script>
+            const ip="localhost";
+            function dem(){
+                let u=document.getElementById("in8").value;
+                
+                const w=new XMLHttpRequest();
+                w.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d10").innerHTML=w.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/deme?e="+u;
+                w.open("GET",url,true)
+                w.send();
+                
+            }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+        
+        
+        <style>
+                #head1{
+                        margin-top:0%;
+                        text-align: center;
+                        font-size: xx-large;
+                }
+                #in1{
+                        border-radius: 25px;
+                        background-color: black;
+                        color:white;
+                }
+                #d3{
+                        text-align: center;
+                }
+                #d6{    
+                        text-align: center;
+                        margin-top:5%;
+
+                }
+                .but0{
+                        font-size:29px;
+                border-radius: 10px;
+                border-color: white;
+                background-color: lightblue;
+                color:black;
+                }
+        </style>
+</head>
+<body>
+        
+        <div id="d3">
+                <h1 id="head1">Launch Container</h1>
+                <br /><br /><br/><br />    
+                        <b>Name:</b>&nbsp;<input id="in2" name="cname">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>Image Name</b>
+                        <select id="sel2" onclick="selectimg()" name="cimage">
+                        
+                        
+                        
+                        </select>
+                        <br /><br /><br /><br />
+                        
+                        <button class="but0" onclick="fire()">Submit</button>
+            </div>
+            <div id="d6">
+                
+            </div>
+            <div>
+                
+            </div>
+            <script>
+                const ip="localhost";
+        
+                function fire(){
+                    let y=document.getElementById("in2").value;
+                    let z=document.getElementById("sel2").value;
+                    const x=new XMLHttpRequest();
+                    const url="http://"+ip+":3002/run?n="+y+"&m="+z;
+                    x.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d6").innerHTML=x.responseText;
+                        }
+                    }
+                    x.open("GET",url,true)
+                    x.send();
+                    
+                }
+        
+                function selectimg(){
+                                        
+                        const x=new XMLHttpRequest();
+                        const url="http://"+ip+":3002/selectimg";
+                        x.onreadystatechange=function(){
+                        if(this.readyState==4){
+                                document.getElementById("sel2").innerHTML=x.responseText;
+                        }
+                        }
+                        x.open("GET",url,true)
+                        x.send();
+            
+                }     
+                        
+        </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .but6{
+                
+                font-size:29px;
+                border-radius: 10px;
+                border-color: white;
+                background-color: red;
+                color:white;
+            
+            }
+            #head6{
+                margin-top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1 id="head6">STOP CONTAINER</h1>
+        <div>
+           Container Name:&nbsp;&nbsp; <input id="in10" name="cnam" />
+           
+            <br /><br />
+                        
+                        <button class="but6" onclick="stope()">Stop</button>
+                        <br /><br />
+        </div>
+        <div id="d14">
+                
+        </div>
+        <script>
+            const ip="localhost";
+            function stope(){
+                
+                let g=document.getElementById("in10").value;
+                
+                const sta=new XMLHttpRequest();
+                sta.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d14").innerHTML=sta.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/stoped?t="+g;
+                sta.open("GET",url,true)
+                sta.send();
+                
+            }
+    </script>
+    </body>
+</html>

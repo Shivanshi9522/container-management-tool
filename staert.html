@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            .but5{
+                
+                font-size:29px;
+                border-radius: 10px;
+                border-color: white;
+                background-color: lawngreen;
+                color:white;
+            
+            }
+            #head5{
+                margin-top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="head5">START CONTAINER</h1>
+        <div>
+           Container Name:<input id="in9" name="cnam" />
+           
+            <br /><br />
+                        
+                        <button class="but5" onclick="star()">Start</button>
+                        <br /><br />
+        </div>
+        <div id="d15">
+                
+        </div>
+        
+        <script>
+            const ip="localhost";
+            function star(){
+                
+                let v=document.getElementById("in9").value;
+                
+                const sat=new XMLHttpRequest();
+                sat.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d15").innerHTML=sat.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/starte?f="+v;
+                sat.open("GET",url,true)
+                sat.send();
+                
+            }
+    </script>
+    
+        
+
+    </body>
+</html>

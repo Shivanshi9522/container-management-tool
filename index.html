@@ -1,0 +1,295 @@
+<html>
+    <head>
+        
+        <style>
+            body{
+                margin:0px 0px 0px 0px; 
+            }
+            div#d1{
+                background-image: url("https://www.td-academy.org/images/Dummy_1__5.png");
+                text-align: center;
+                
+                height:100px;
+                width:100%;
+                border:5px solid grey;
+            }
+            div#d2{
+                display: inline-block;
+                background-color: white;
+                opacity: 0.5;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 270%;
+                padding-bottom:8px;
+                border-radius:30px 0px;
+            }
+            a{  
+                
+                text-decoration: none;
+                text-align: center;
+                color: black;
+            }
+            .but1{
+                font-size:20px;
+                border-radius: 10px;                      
+                border-color: white;                      /**/
+                background-color: black;
+                color:white;
+                width:90%;
+                height:10%;             
+            }                           
+            div#d7{
+                background-image: url("https://dailysmarty-production.s3.amazonaws.com/uploads/post/img/529/docker-cheat-sheet.png");
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: right;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d1">
+        <br />
+           <!--<img src="https://icon-library.com/images/docker-container-icon/docker-container-icon-15.jpg"/>-->
+           <div id="d2">"One Platform For All Your Container Needs !!"</div>
+        </div>
+        <div style="width: 100%; ">
+            <div style="width: 20%; height:100%; float: left; background:lightblue;"> 
+                <br />
+                <button class="but1" onclick="launch()">Launch Container</button><br />
+                <button class="but1" onclick="list()">List All Containers</button><br />
+                <button class="but1" onclick="delt()">Delete Containers</button><br />
+                <button class="but1" onclick="img()">List All Images</button><br />
+                <button class="but1" onclick="pool()">Pull An Image</button><br />
+                <button class="but1" onclick="delet()">Delete Container</button><br />
+                <button class="but1" onclick="st()">Start Container</button><br />
+                <button class="but1" onclick="sp()">Stop Container</button>
+                <button class="but1" onclick="docfile()">Create Image Using Dockerfile</button>
+            </div>
+            <div id="d7" style="margin-left: 0%; height:100%; text-align: center; "> 
+               
+            </div>
+            
+            <script>
+                const ip="localhost";
+                function launch(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    
+                    const myhttp=new XMLHttpRequest();
+                    myhttp.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=myhttp.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/runform";
+                    myhttp.open("GET",url,true)
+                    myhttp.send();
+                    
+                }
+                function list(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const chm=new XMLHttpRequest();
+                    chm.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=chm.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/ps";
+                    chm.open("GET",url,true)
+                    chm.send();
+                    
+                }
+                function delt(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const dmt=new XMLHttpRequest();
+                    dmt.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=dmt.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/del";
+                    dmt.open("GET",url,true)
+                    dmt.send();
+                    
+                }
+                function img(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const im=new XMLHttpRequest();
+                    im.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=im.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/img";
+                    im.open("GET",url,true)
+                    im.send();
+                    
+                }
+                function pool(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const pl=new XMLHttpRequest();
+                    pl.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=pl.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/pool";
+                    pl.open("GET",url,true)
+                    pl.send();
+                    
+                }
+                function delet(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const d=new XMLHttpRequest();
+                    d.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=d.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/deletee";
+                    d.open("GET",url,true)
+                    d.send();
+                    
+                }
+                function st(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const tp=new XMLHttpRequest();
+                    tp.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=tp.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/start";
+                    tp.open("GET",url,true)
+                    tp.send();
+                    
+                }
+                function sp(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    const hp=new XMLHttpRequest();
+                    hp.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=hp.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/stop";
+                    hp.open("GET",url,true)
+                    hp.send();
+                    
+                }
+                function stope(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    let g=document.getElementById("in10").value;
+                    
+                    const sta=new XMLHttpRequest();
+                    sta.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d14").innerHTML=sta.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/stoped?t="+g;
+                    sta.open("GET",url,true)
+                    sta.send();
+                    
+                }
+                function docfile(){
+                    document.getElementById("d7").style.backgroundImage="none";
+                    
+                    const myhttp=new XMLHttpRequest();
+                    myhttp.onreadystatechange=function(){
+                        if(this.readyState==4){
+                            document.getElementById("d7").innerHTML=myhttp.responseText;
+                        }
+                    }
+                    const url="http://"+ip+":3002/createmyimage";
+                    myhttp.open("GET",url,true)
+                    myhttp.send();
+                    
+                }
+        </script>
+        </div>
+        
+    <script>
+       
+    function fire(){
+        let y=document.getElementById("in2").value;
+        let z=document.getElementById("sel2").value;
+        const x=new XMLHttpRequest();
+        x.onreadystatechange=function(){
+            if(this.readyState==4){
+                document.getElementById("d6").innerHTML=x.responseText;
+            }
+        }
+        const url="http://"+ip+":3002/run?n="+y+"&m="+z;
+        x.open("GET",url,true)
+        x.send();
+        
+    }
+        function pul(){
+            let k=document.getElementById("in7").value;
+            let a=document.getElementById("sel1").value;
+            const s=new XMLHttpRequest();
+            s.onreadystatechange=function(){
+                if(this.readyState==4){
+                    document.getElementById("d9").innerHTML=s.responseText;
+                }
+            }
+            const url="http://"+ip+":3002/res?l="+k+"&p="+a;
+            s.open("GET",url,true)
+            s.send();
+            
+        }
+
+    function star(){
+        let v=document.getElementById("in9").value;
+        
+        const sat=new XMLHttpRequest();
+        sat.onreadystatechange=function(){
+            if(this.readyState==4){
+                document.getElementById("d15").innerHTML=sat.responseText;
+            }
+        }
+        const url="http://"+ip+":3002/starte?f="+v;
+        sat.open("GET",url,true)
+        sat.send();
+        
+    }
+    function dem(){
+                let u=document.getElementById("in8").value;
+                
+                const w=new XMLHttpRequest();
+                w.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d10").innerHTML=w.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/deme?e="+u;
+                w.open("GET",url,true)
+                w.send();
+                
+            }
+            function selectimg(){
+                                        
+                                        const x=new XMLHttpRequest();
+                                        const url="http://"+ip+":3002/selectimg";
+                                        x.onreadystatechange=function(){
+                                        if(this.readyState==4){
+                                                document.getElementById("sel2").innerHTML=x.responseText;
+                                        }
+                                        }
+                                        x.open("GET",url,true)
+                                        x.send();
+                            
+                                }    
+            function createImage(){
+                const myhttp=new XMLHttpRequest();
+                const imagename=document.getElementById("imagnameinput").value;
+                const filecontent=document.getElementById("filecontentinput").value;
+                dockerfilelines=filecontent.split("/n");
+                const url="http://"+ip+":3002/imgcreat?imagename="+imagename+"&filcont="+dockerfilelines;
+                myhttp.open("GET",url,true);
+                myhttp.send();
+            } 
+</script>
+
+    </body>
+</html>

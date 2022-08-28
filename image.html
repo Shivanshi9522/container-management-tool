@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            .but2{
+                
+                font-size:29px;
+                border-radius: 10px;
+                border-color: white;
+                background-color: blue;
+                color:white;
+            
+            }
+            #head2{
+                margin-top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1 id="head2">PULL AN IMAGE</h1>
+        <div>
+           Image Name<input id="in7" name="iname" />
+           &nbsp;&nbsp;&nbsp;&nbsp;
+                        Image Version
+                        <select id="sel1" name="iver">
+                        <option>latest</option>
+                        </select>
+                        <br /><br /><br /><br />
+                        
+                        <button class="but2" onclick="pul()">Pull</button>
+        </div>
+        <div id="d9">
+                
+        </div>
+        <script>
+            const ip="localhost";
+            function pul(){
+                let k=document.getElementById("in7").value;
+                let a=document.getElementById("sel1").value;
+                const s=new XMLHttpRequest();
+                s.onreadystatechange=function(){
+                    if(this.readyState==4){
+                        document.getElementById("d9").innerHTML=s.responseText;
+                    }
+                }
+                const url="http://"+ip+":3002/res?l="+k+"&p="+a;
+                s.open("GET",url,true)
+                s.send();
+                
+            }
+    </script>
+    </body>
+</html>
